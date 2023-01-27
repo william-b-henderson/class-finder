@@ -1,0 +1,19 @@
+{
+    "title": "Introduction to Aerospace Engineering Design",
+    "displayName": "AERO ENG 10",
+    "subjectAreaCode": "AERO ENG",
+    "subjectAreaDescription": "Aerospace Engineering",
+    "meetsMonday": true,
+    "meetsTuesday": false,
+    "meetsWednesday": true,
+    "meetsThursday": false,
+    "meetsFriday": true,
+    "meetsSaturday": false,
+    "meetsSunday": false,
+    "startTime": "09:00:00",
+    "endTime": "09:59:00",
+    "locationCode": "SOCS140",
+    "locationDescription": "Social Sciences Building 140",
+    "buildingCode": "1761",
+    "buildingDescription": "Social Sci"
+}

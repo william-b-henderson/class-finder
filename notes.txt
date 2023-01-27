@@ -1,0 +1,20 @@
+
+JSON objects we want from the result:
+- course.title
+- course.displayName
+- course.courseObjectives
+- meetings.meetsMonday
+          .meetsTuesday
+          .meetsWednesday
+          .meetsThursday
+          .meetsFriday
+          .meetsSaturday
+          .meetsSunday
+          .startTime
+          .endTime
+- meetings.location.code
+- meetings.location.description
+- meetings.building.code
+- meetings.building.description
+- course.subjectArea.code
+- course.subjectArea.description

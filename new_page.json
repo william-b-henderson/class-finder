@@ -1,0 +1,734 @@
+{
+    "id": 32936,
+    "number": "001",
+    "component": {
+        "code": "LEC",
+        "description": "Lecture"
+    },
+    "displayName": "2023 Spring AEROENG 10 001 LEC 001",
+    "instructionMode": {
+        "code": "P",
+        "description": "In-Person Instruction"
+    },
+    "type": {
+        "code": "E",
+        "description": "Enrollment",
+        "formalDescription": "Enrollment Section"
+    },
+    "academicOrganization": {
+        "code": "MECENG",
+        "description": "Mechanical Engineering",
+        "formalDescription": "Mechanical Engineering"
+    },
+    "academicGroup": {
+        "code": "COE",
+        "description": "COE",
+        "formalDescription": "College of Engineering"
+    },
+    "startDate": "2023-01-17",
+    "endDate": "2023-05-05",
+    "status": {
+        "code": "A",
+        "description": "Active"
+    },
+    "association": {
+        "primary": true,
+        "primaryAssociatedComponent": {
+            "code": "LEC",
+            "description": "Lecture"
+        },
+        "primaryAssociatedSectionId": 32936,
+        "primaryAssociatedSectionIds": [
+            32936
+        ],
+        "associatedClass": 1
+    },
+    "enrollmentStatus": {
+        "status": {
+            "code": "C",
+            "description": "Closed"
+        },
+        "enrolledCount": 16,
+        "reservedCount": 6,
+        "waitlistedCount": 0,
+        "minEnroll": 0,
+        "maxEnroll": 16,
+        "maxWaitlist": 2,
+        "openReserved": 0,
+        "seatReservations": [
+            {
+                "number": 2,
+                "requirementGroup": {
+                    "code": "000484",
+                    "description": "Undeclared Students in the College of Engineering"
+                },
+                "fromDate": "2022-10-17",
+                "maxEnroll": 0,
+                "enrolledCount": 0
+            },
+            {
+                "number": 1,
+                "requirementGroup": {
+                    "code": "001351",
+                    "description": "Aerospace Engineering Majors"
+                },
+                "fromDate": "2022-10-17",
+                "maxEnroll": 15,
+                "enrolledCount": 6
+            }
+        ]
+    },
+    "printInScheduleOfClasses": true,
+    "addConsentRequired": {
+        "code": "N",
+        "description": "No Special Consent Required"
+    },
+    "dropConsentRequired": {
+        "code": "N",
+        "description": "No Special Consent Required"
+    },
+    "graded": true,
+    "feesExist": false,
+    "roomShare": false,
+    "sectionAttributes": [
+        {
+            "attribute": {
+                "code": "CCLV",
+                "description": "CRSE LEVEL",
+                "formalDescription": "Academic Course Level"
+            },
+            "value": {
+                "code": "UGLD",
+                "description": "UG Lower Division",
+                "formalDescription": "Undergraduate Lower Division Course"
+            }
+        },
+        {
+            "attribute": {
+                "code": "TIE",
+                "description": "Instr Type",
+                "formalDescription": "Instructional Activity Types"
+            },
+            "value": {
+                "code": "LECS",
+                "description": "Lecture/Supplementary Activity",
+                "formalDescription": "Transmitting the Knowledge Base"
+            }
+        },
+        {
+            "attribute": {
+                "code": "VUOC",
+                "description": "VCREDIT",
+                "formalDescription": "Variable Units of Credit"
+            },
+            "value": {
+                "code": "F",
+                "description": "Fixed",
+                "formalDescription": "Fixed Unit 1 Value"
+            }
+        },
+        {
+            "attribute": {
+                "code": "NOTE",
+                "formalDescription": "Class Notes"
+            },
+            "value": {
+                "code": "2",
+                "formalDescription": "The following prerequisites must be completed to enroll in this class: COMPSCI 61A or ENGIN 7. Waitlist priority will be given to Freshman and Sophomore Engineering students who have met the prerequisites listed. The waitlist will be manually managed and processed starting the adjustment period on a space available basis.\n\nLAB SECTIONS will be in Hesse Hall and will be discussed during the first week of lecture."
+            }
+        }
+    ],
+    "meetings": [
+        {
+            "number": 1,
+            "meetsDays": "MoWeFr",
+            "meetsMonday": true,
+            "meetsTuesday": false,
+            "meetsWednesday": true,
+            "meetsThursday": false,
+            "meetsFriday": true,
+            "meetsSaturday": false,
+            "meetsSunday": false,
+            "startTime": "09:00:00",
+            "endTime": "09:59:00",
+            "location": {
+                "code": "SOCS140",
+                "description": "Social Sciences Building 140"
+            },
+            "building": {
+                "code": "1761",
+                "description": "Social Sci"
+            },
+            "assignedInstructors": [
+                {
+                    "assignmentNumber": 1,
+                    "instructor": {
+                        "identifiers": [
+                            {
+                                "type": "campus-uid",
+                                "id": "5658",
+                                "disclose": true
+                            }
+                        ],
+                        "names": [
+                            {
+                                "type": {
+                                    "code": "PRF",
+                                    "description": "Preferred"
+                                },
+                                "familyName": "Marcus",
+                                "givenName": "Philip",
+                                "formattedName": "Philip S Marcus",
+                                "disclose": true,
+                                "uiControl": {
+                                    "code": "U",
+                                    "description": "Edit - No Delete"
+                                },
+                                "fromDate": "1986-07-01"
+                            },
+                            {
+                                "type": {
+                                    "code": "PRI",
+                                    "description": "Primary"
+                                },
+                                "familyName": "Marcus",
+                                "givenName": "Philip",
+                                "formattedName": "Philip S Marcus",
+                                "disclose": true,
+                                "uiControl": {
+                                    "code": "D",
+                                    "description": "Display Only"
+                                },
+                                "fromDate": "1986-07-01"
+                            }
+                        ]
+                    },
+                    "role": {
+                        "code": "PI",
+                        "description": "1-TIC",
+                        "formalDescription": "Teaching and In Charge"
+                    },
+                    "contactMinutes": 0,
+                    "printInScheduleOfClasses": true,
+                    "gradeRosterAccess": {
+                        "code": "A",
+                        "description": "Approve",
+                        "formalDescription": "Approve"
+                    }
+                },
+                {
+                    "assignmentNumber": 2,
+                    "instructor": {
+                        "identifiers": [
+                            {
+                                "type": "campus-uid",
+                                "id": "1585128",
+                                "disclose": true
+                            }
+                        ],
+                        "names": [
+                            {
+                                "type": {
+                                    "code": "PRF",
+                                    "description": "Preferred"
+                                },
+                                "familyName": "Sreenath",
+                                "givenName": "Koushil",
+                                "formattedName": "Koushil  Sreenath",
+                                "disclose": true,
+                                "uiControl": {
+                                    "code": "U",
+                                    "description": "Edit - No Delete"
+                                },
+                                "fromDate": "2022-05-01"
+                            },
+                            {
+                                "type": {
+                                    "code": "PRI",
+                                    "description": "Primary"
+                                },
+                                "familyName": "Sreenath",
+                                "givenName": "Koushil",
+                                "formattedName": "Koushil  Sreenath",
+                                "disclose": true,
+                                "uiControl": {
+                                    "code": "D",
+                                    "description": "Display Only"
+                                },
+                                "fromDate": "2022-05-01"
+                            }
+                        ]
+                    },
+                    "role": {
+                        "code": "PI",
+                        "description": "1-TIC",
+                        "formalDescription": "Teaching and In Charge"
+                    },
+                    "contactMinutes": 0,
+                    "printInScheduleOfClasses": true,
+                    "gradeRosterAccess": {
+                        "code": "G",
+                        "description": "Grade",
+                        "formalDescription": "Grade"
+                    }
+                },
+                {
+                    "assignmentNumber": 3,
+                    "instructor": {
+                        "identifiers": [
+                            {
+                                "type": "campus-uid",
+                                "id": "1115098",
+                                "disclose": true
+                            }
+                        ],
+                        "names": [
+                            {
+                                "type": {
+                                    "code": "PRF",
+                                    "description": "Preferred"
+                                },
+                                "familyName": "Berliner",
+                                "givenName": "Aaron",
+                                "formattedName": "Aaron Jacob Berliner",
+                                "disclose": true,
+                                "uiControl": {
+                                    "code": "U",
+                                    "description": "Edit - No Delete"
+                                },
+                                "fromDate": "2023-01-01"
+                            },
+                            {
+                                "type": {
+                                    "code": "PRI",
+                                    "description": "Primary"
+                                },
+                                "familyName": "Berliner",
+                                "givenName": "Aaron",
+                                "formattedName": "Aaron Jacob Berliner",
+                                "disclose": true,
+                                "uiControl": {
+                                    "code": "D",
+                                    "description": "Display Only"
+                                },
+                                "fromDate": "2023-01-01"
+                            }
+                        ]
+                    },
+                    "role": {
+                        "code": "PI",
+                        "description": "1-TIC",
+                        "formalDescription": "Teaching and In Charge"
+                    },
+                    "contactMinutes": 0,
+                    "printInScheduleOfClasses": true,
+                    "gradeRosterAccess": {
+                        "code": "G",
+                        "description": "Grade",
+                        "formalDescription": "Grade"
+                    }
+                }
+            ],
+            "startDate": "2023-01-17",
+            "endDate": "2023-05-05",
+            "meetingTopic": []
+        }
+    ],
+    "class": {
+        "course": {
+            "identifiers": [
+                {
+                    "type": "cs-course-id",
+                    "id": "162181"
+                }
+            ],
+            "subjectArea": {
+                "code": "AEROENG",
+                "description": "Aerospace Engineering"
+            },
+            "catalogNumber": {
+                "number": "10",
+                "formatted": "10"
+            },
+            "displayName": "AEROENG 10",
+            "title": "Introduction to Aerospace Engineering Design",
+            "transcriptTitle": "INTRO AEROSP DESIGN"
+        },
+        "offeringNumber": 1,
+        "session": {
+            "term": {
+                "id": "2232",
+                "name": "2023 Spring"
+            },
+            "id": "1",
+            "name": "Regular Academic Session"
+        },
+        "number": "001",
+        "displayName": "2023 Spring AEROENG 10 001",
+        "allowedUnits": {
+            "minimum": 4,
+            "maximum": 4,
+            "forAcademicProgress": 4,
+            "forFinancialAid": 4
+        },
+        "gradingBasis": {
+            "code": "OPT",
+            "description": "Student Option"
+        }
+    },
+    "attributes": {
+        "CCLV": [
+            {
+                "attribute": {
+                    "code": "CCLV",
+                    "description": "CRSE LEVEL",
+                    "formalDescription": "Academic Course Level"
+                },
+                "value": {
+                    "code": "UGLD",
+                    "description": "UG Lower Division",
+                    "formalDescription": "Undergraduate Lower Division Course"
+                }
+            }
+        ],
+        "TIE": [
+            {
+                "attribute": {
+                    "code": "TIE",
+                    "description": "Instr Type",
+                    "formalDescription": "Instructional Activity Types"
+                },
+                "value": {
+                    "code": "LECS",
+                    "description": "Lecture/Supplementary Activity",
+                    "formalDescription": "Transmitting the Knowledge Base"
+                }
+            }
+        ],
+        "VUOC": [
+            {
+                "attribute": {
+                    "code": "VUOC",
+                    "description": "VCREDIT",
+                    "formalDescription": "Variable Units of Credit"
+                },
+                "value": {
+                    "code": "F",
+                    "description": "Fixed",
+                    "formalDescription": "Fixed Unit 1 Value"
+                }
+            }
+        ],
+        "NOTE": {
+            "class-notes": {
+                "attribute": {
+                    "code": "NOTE",
+                    "formalDescription": "Class Notes"
+                },
+                "value": {
+                    "code": "2",
+                    "formalDescription": "The following prerequisites must be completed to enroll in this class: COMPSCI 61A or ENGIN 7. Waitlist priority will be given to Freshman and Sophomore Engineering students who have met the prerequisites listed. The waitlist will be manually managed and processed starting the adjustment period on a space available basis.\n\nLAB SECTIONS will be in Hesse Hall and will be discussed during the first week of lecture."
+                }
+            }
+        }
+    },
+    "course": {
+        "identifiers": [
+            {
+                "type": "cms-id",
+                "id": "c55f1e4d-0619-4744-8b92-61b7c65857de"
+            },
+            {
+                "type": "cs-course-id",
+                "id": "162181"
+            },
+            {
+                "type": "cms-version-independent-id",
+                "id": "22b0d30b-5702-402d-a7b7-fe18b3564691"
+            }
+        ],
+        "subjectArea": {
+            "code": "AERO ENG",
+            "description": "Aerospace Engineering"
+        },
+        "catalogNumber": {
+            "prefix": "",
+            "number": "10",
+            "suffix": "",
+            "formatted": "10"
+        },
+        "classSubjectArea": {
+            "code": "AEROENG",
+            "description": "Aerospace Engineering"
+        },
+        "displayName": "AERO ENG 10",
+        "classDisplayName": "AEROENG 10",
+        "formerDisplayName": "",
+        "title": "Introduction to Aerospace Engineering Design",
+        "transcriptTitle": "INTRO AEROSP DESIGN",
+        "description": "This course introduces mathematical engineering concepts and a wide range of analysis and design techniques of relevance to aerospace engineering via approximately 3-week modules covering the following topics: dynamics and control of a small quad-rotor aircraft; dynamics of elliptic, hyperbolic, and parabolic orbits, including rendezvous of objects in the same circular orbit; control volume analysis of a rocket engine; sling-shot effect to drive space probes into space; thermal control in outer space; optimization of airfoils using morphing techniques; rapid prototyping-assisted design of lightweight materials.",
+        "academicCareer": {
+            "code": "UGRD",
+            "description": "Undergraduate"
+        },
+        "academicGroup": {
+            "code": "COE",
+            "description": "Clg of Engineering"
+        },
+        "academicOrganization": {
+            "code": "MECENG",
+            "description": "Mechanical Engineering"
+        },
+        "departmentNicknames": "",
+        "primaryInstructionMethod": {
+            "code": "LEC",
+            "description": "Instructor presentation of course materials"
+        },
+        "credit": {
+            "type": "fixed",
+            "value": {
+                "fixed": {
+                    "units": 4
+                }
+            }
+        },
+        "gradingBasis": {
+            "code": "letter",
+            "description": "letter"
+        },
+        "blindGrading": false,
+        "status": {
+            "code": "ACTIVE",
+            "description": "ACTIVE"
+        },
+        "fromDate": "2023-01-10",
+        "toDate": "2099-12-19",
+        "createdDate": "2022-01-14",
+        "updatedDate": "2022-07-29",
+        "printInCatalog": true,
+        "printInstructors": true,
+        "anyFeesExist": false,
+        "finalExam": {
+            "code": "Y",
+            "description": "Written final exam conducted during the scheduled final exam period"
+        },
+        "instructorDropConsentRequired": false,
+        "allowMultipleEnrollments": false,
+        "contactHours": 4,
+        "workloadHours": 12,
+        "tie": {
+            "code": "LECS",
+            "description": "LECS"
+        },
+        "cip": {
+            "code": "MISSINGcipCode",
+            "description": "MISSINGcipCode"
+        },
+        "hegis": {
+            "code": "MISSINGhegisCode",
+            "description": "MISSINGhegisCode"
+        },
+        "repeatability": {
+            "repeatable": false
+        },
+        "preparation": {
+            "requiredText": "Prerequisite: MATH 1A, MATH 1B, PHYSICS 7A, Programming (COMPSCI 61A or ENGIN 7), or equivalent background. Co-Requisite: MATH 53, or equivalent background.",
+            "requiredCourses": {
+                "courses": [
+                    {
+                        "identifiers": [
+                            {
+                                "type": "cs-course-id",
+                                "id": "106696"
+                            },
+                            {
+                                "type": "cms-version-independent-id",
+                                "id": "76e0c7e4-7472-46fe-9194-c03c30ef26d9"
+                            }
+                        ],
+                        "displayName": "ENGIN 7"
+                    },
+                    {
+                        "identifiers": [
+                            {
+                                "type": "cs-course-id",
+                                "id": "104424"
+                            },
+                            {
+                                "type": "cms-version-independent-id",
+                                "id": "ee58780e-66b3-4501-aef6-ba6c41481d47"
+                            }
+                        ],
+                        "displayName": "COMPSCI 61A"
+                    },
+                    {
+                        "identifiers": [
+                            {
+                                "type": "cs-course-id",
+                                "id": "118491"
+                            },
+                            {
+                                "type": "cms-version-independent-id",
+                                "id": "5f6947f4-ee7f-4c32-91b0-c6880e55a6f4"
+                            }
+                        ],
+                        "displayName": "PHYSICS 7A"
+                    },
+                    {
+                        "identifiers": [
+                            {
+                                "type": "cs-course-id",
+                                "id": "114702"
+                            },
+                            {
+                                "type": "cms-version-independent-id",
+                                "id": "7d3d7b2a-7b83-4a29-b937-3ff788b1e621"
+                            }
+                        ],
+                        "displayName": "MATH 53"
+                    },
+                    {
+                        "identifiers": [
+                            {
+                                "type": "cs-course-id",
+                                "id": "114496"
+                            },
+                            {
+                                "type": "cms-version-independent-id",
+                                "id": "f88abe16-4c30-4d24-a989-5324aec3175d"
+                            }
+                        ],
+                        "displayName": "MATH 1A"
+                    },
+                    {
+                        "identifiers": [
+                            {
+                                "type": "cs-course-id",
+                                "id": "114500"
+                            },
+                            {
+                                "type": "cms-version-independent-id",
+                                "id": "f6acf3ec-ebcd-44d9-afde-e53afb740ba4"
+                            }
+                        ],
+                        "displayName": "MATH 1B"
+                    }
+                ]
+            }
+        },
+        "proposedInstructors": [
+            "Papadopoulos, Marcus, Tomlin, Savas, Beyen, Minor"
+        ],
+        "formatsOffered": {
+            "description": "Three hours of lecture and one hour of laboratory per week. ",
+            "formats": [
+                {
+                    "termsAllowed": [
+                        "Spring"
+                    ],
+                    "sessionType": "15",
+                    "description": "3.0 hours of lecture and  1.0 hours of laboratory per week",
+                    "aggregateMinContactHours": 4,
+                    "aggregateMaxContactHours": 4,
+                    "minWorkloadHours": 12,
+                    "maxWorkloadHours": 12,
+                    "anyFeesExist": false,
+                    "components": [
+                        {
+                            "instructionMethod": {
+                                "code": "LEC",
+                                "description": "Instructor presentation of course materials"
+                            },
+                            "primary": true,
+                            "minContactHours": 3,
+                            "maxContactHours": 3,
+                            "finalExam": [],
+                            "feesExist": false
+                        },
+                        {
+                            "instructionMethod": {
+                                "code": "WRK",
+                                "description": "Outside Work Hours"
+                            },
+                            "primary": false,
+                            "minContactHours": 8,
+                            "maxContactHours": 8,
+                            "finalExam": [],
+                            "feesExist": false
+                        },
+                        {
+                            "instructionMethod": {
+                                "code": "LAB",
+                                "description": "Instructional experiences requiring special laboratory equipment and facilities"
+                            },
+                            "primary": false,
+                            "minContactHours": 1,
+                            "maxContactHours": 1,
+                            "finalExam": [],
+                            "feesExist": false
+                        }
+                    ]
+                },
+                {
+                    "termsAllowed": [
+                        "Fall"
+                    ],
+                    "sessionType": "15",
+                    "description": "3.0 hours of lecture and  1.0 hours of laboratory per week",
+                    "aggregateMinContactHours": 4,
+                    "aggregateMaxContactHours": 4,
+                    "minWorkloadHours": 12,
+                    "maxWorkloadHours": 12,
+                    "anyFeesExist": false,
+                    "components": [
+                        {
+                            "instructionMethod": {
+                                "code": "LEC",
+                                "description": "Instructor presentation of course materials"
+                            },
+                            "primary": true,
+                            "minContactHours": 3,
+                            "maxContactHours": 3,
+                            "finalExam": [],
+                            "feesExist": false
+                        },
+                        {
+                            "instructionMethod": {
+                                "code": "WRK",
+                                "description": "Outside Work Hours"
+                            },
+                            "primary": false,
+                            "minContactHours": 8,
+                            "maxContactHours": 8,
+                            "finalExam": [],
+                            "feesExist": false
+                        },
+                        {
+                            "instructionMethod": {
+                                "code": "LAB",
+                                "description": "Instructional experiences requiring special laboratory equipment and facilities"
+                            },
+                            "primary": false,
+                            "minContactHours": 1,
+                            "maxContactHours": 1,
+                            "finalExam": [],
+                            "feesExist": false
+                        }
+                    ]
+                }
+            ],
+            "typicallyOffered": {
+                "terms": {
+                    "termNames": [
+                        "Spring",
+                        "Fall"
+                    ]
+                },
+                "comments": ""
+            },
+            "summerOnly": false
+        }
+    },
+    "subjectName": "AEROENG",
+    "resources": []
+}
