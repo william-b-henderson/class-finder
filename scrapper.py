@@ -110,23 +110,5 @@ def save_results(results: list, file_name="results.json") -> None:
 
 if __name__ == "__main__":
     logging.basicConfig(filename="scrapper_log.log", filemode="w", level=logging.INFO)
-    # page = requests.get(SEARCH_URL)
-    # soup = BeautifulSoup(page.content, "html.parser")
-    # page_results = soup.find_all("div", class_="handlebarData")
-    # results_list = []
-    # for result in page_results:
-    #     json_data = result.attrs["data-json"]
-    #     json_data = json.loads(json_data)
-    #     simplified_results = get_values_from_result(json_data)
-    #     results_list.append(simplified_results)
     results_list = get_all_results()
-    # results_list = get_results_from_page("https://classes.berkeley.edu/search/class?page={0}&f%5B0%5D=im_field_term_name%3A2729")
     save_results(results_list)
-    # print(simplified_results)
-    # with open("new_page.json", "w") as new_page:
-    #     json.dump(json_data, new_page, indent=4)
-    # f = open("simplified_result.json", "w")
-    # json.dump(simplified_results, f, indent=4)
-    # f.close()
-    # print(page.content)
-    # pass
