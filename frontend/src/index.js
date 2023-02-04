@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet-draw/dist/leaflet.draw.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LeafletMap from './components/LeafletMap';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
