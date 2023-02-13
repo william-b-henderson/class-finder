@@ -9,7 +9,7 @@ import EditControlFC from './EditControls';
 const ucCoordinates = [37.8719, -122.2591];
 const zoom = 17;
 
-const DisplayPosition = ({ map, mousePosition, geojson }) => {
+const DisplayPosition = ({ map, mousePosition, geojson, setBuildingName, buildingName }) => {
   const [position, setPosition] = useState(() => map.getCenter());
 
   const onClick = useCallback(() => {
@@ -41,6 +41,12 @@ const DisplayPosition = ({ map, mousePosition, geojson }) => {
     <p>
       latitude: {mousePosition[0]}, longitude: {mousePosition[1]} <button onClick={onClick}>reset</button>{' '}
       <button onClick={handleSave}>Save geoJSON</button>
+      <input
+        onChange={(e) => {
+          setBuildingName(e.target.value);
+          console.log(buildingName);
+        }}
+      ></input>
     </p>
   );
 };
@@ -69,6 +75,7 @@ const LeafletMap = () => {
   const [map, setMap] = useState(null);
   const [mousePosition, setMousePosition] = useState([0, 0]);
   const [polygon, setPolygon] = useState(null);
+  const [buildingName, setBuildingName] = useState('');
   const [geojson, setGeojson] = useState({
     type: 'FeatureCollection',
     features: [
@@ -107,7 +114,15 @@ const LeafletMap = () => {
 
   return (
     <>
-      {map ? <DisplayPosition map={map} mousePosition={mousePosition} geojson={geojson} /> : null}
+      {map ? (
+        <DisplayPosition
+          map={map}
+          mousePosition={mousePosition}
+          geojson={geojson}
+          setBuildingName={setBuildingName}
+          buildingName={buildingName}
+        />
+      ) : null}
       <MapContainer style={{ height: '90vh', width: '100vw' }} center={ucCoordinates} zoom={zoom} ref={setMap}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -119,7 +134,7 @@ const LeafletMap = () => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
-        <EditControlFC geojson={geojson} setGeojson={setGeojson} />
+        <EditControlFC geojson={geojson} setGeojson={setGeojson} buildingName={buildingName} />
       </MapContainer>
     </>
   );

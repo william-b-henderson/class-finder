@@ -24,6 +24,13 @@ export default function EditControlFC({ geojson, setGeojson }) {
 
   const handleChange = () => {
     const geo = ref.current?.toGeoJSON();
+    const buildingName = prompt('Building Name: ');
+    // console.log(geo.features.at(-1));
+
+    geo.features.at(-1).properties = {
+      buildingDescription: buildingName,
+    };
+    console.log(buildingName);
     console.log(geo);
     if (geo?.type === 'FeatureCollection') {
       setGeojson(geo);
