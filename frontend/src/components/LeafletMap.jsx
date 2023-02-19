@@ -1,13 +1,15 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents, Polygon } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import axios from 'axios';
 
-import EditControlFC from './EditControls';
+import DrawBuildings from './DrawBuildings';
 
 const ucCoordinates = [37.8719, -122.2591];
 const zoom = 17;
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 const DisplayPosition = ({ map, mousePosition, geojson, setBuildingName, buildingName }) => {
   const [position, setPosition] = useState(() => map.getCenter());
@@ -76,46 +78,32 @@ const LeafletMap = () => {
   const [mousePosition, setMousePosition] = useState([0, 0]);
   const [polygon, setPolygon] = useState(null);
   const [buildingName, setBuildingName] = useState('');
-  const [geojson, setGeojson] = useState({
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        properties: {
-          buildingDescription: 'Dwinelle',
-        },
-        geometry: {
-          type: 'Polygon',
-          coordinates: [
-            [
-              [-122.260537, 37.871287],
-              [-122.261267, 37.871113],
-              [-122.261068, 37.870613],
-              [-122.260795, 37.870698],
-              [-122.260709, 37.870346],
-              [-122.260779, 37.870287],
-              [-122.260746, 37.870147],
-              [-122.25999, 37.870257],
-              [-122.260038, 37.870427],
-              [-122.260264, 37.870406],
-              [-122.260365, 37.87077],
-              [-122.260151, 37.870829],
-              [-122.260205, 37.870995],
-              [-122.2605, 37.870931],
-              [-122.260569, 37.87113],
-              [-122.260484, 37.87116],
-              [-122.260537, 37.871287],
-            ],
-          ],
-        },
-      },
-    ],
-  });
+  const [geojson, setGeojson] = useState(null);
+
+  useEffect(() => {
+    let ignore = false;
+    async function fetchGeoJSON() {
+      axios({
+        method: 'get',
+        url: `${API_ENDPOINT}/api/v1/buildings/getBuildingGeoJSON`,
+      }).then((res) => {
+        if (!ignore) {
+          console.log('geoJSON loaded');
+          setGeojson(res.data);
+        }
+      });
+    }
+    fetchGeoJSON();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   return (
     <>
-      {map ? (
+      {map && geojson ? (
         <DisplayPosition
+          key={geojson}
           map={map}
           mousePosition={mousePosition}
           geojson={geojson}
@@ -134,7 +122,8 @@ const LeafletMap = () => {
             A pretty CSS3 popup. <br /> Easily customizable.
           </Popup>
         </Marker>
-        <EditControlFC geojson={geojson} setGeojson={setGeojson} buildingName={buildingName} />
+        {geojson && <DrawBuildings key={geojson} geojson={geojson} />}
+        {/* <EditControlFC key={geojson} geojson={geojson} setGeojson={setGeojson} buildingName={buildingName} /> */}
       </MapContainer>
     </>
   );
