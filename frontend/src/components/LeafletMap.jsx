@@ -1,68 +1,16 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import L from 'leaflet';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 import axios from 'axios';
 
 import DrawBuildings from './DrawBuildings';
+import { MenuBar } from './MenuBar';
 
 const ucCoordinates = [37.8719, -122.2591];
 const zoom = 17;
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
-
-const DisplayPosition = ({ map, mousePosition, geojson, setBuildingName, buildingName }) => {
-  const [position, setPosition] = useState(() => map.getCenter());
-
-  const onClick = useCallback(() => {
-    map.setView(ucCoordinates, zoom);
-  }, [map]);
-
-  const handleSave = useCallback(() => {
-    const element = document.createElement('a');
-    const textFile = new Blob([JSON.stringify(geojson)], { type: 'text/plain' });
-    element.href = URL.createObjectURL(textFile);
-    element.download = 'geojson.json';
-    document.body.appendChild(element);
-    element.click();
-    console.log(geojson);
-  }, [geojson]);
-
-  const onMove = useCallback(() => {
-    setPosition(map.getCenter());
-  }, [map]);
-
-  useEffect(() => {
-    map.on('move', onMove);
-    return () => {
-      map.off('move', onMove);
-    };
-  }, [map, onMove]);
-
-  return (
-    <p>
-      latitude: {mousePosition[0]}, longitude: {mousePosition[1]} <button onClick={onClick}>reset</button>{' '}
-      <button onClick={handleSave}>Save geoJSON</button>
-      <input
-        onChange={(e) => {
-          setBuildingName(e.target.value);
-          console.log(buildingName);
-        }}
-      ></input>
-    </p>
-  );
-};
-
-const MapEvents = ({ setMousePosition, editablePolygon }) => {
-  useMapEvents({
-    click(e) {
-      // setState your coords here
-      // coords exist in "e.latlng.lat" and "e.latlng.lng"
-      setMousePosition([e.latlng.lat.toFixed(4), e.latlng.lng.toFixed(4)]);
-    },
-  });
-  return false;
-};
 
 const LeafletMap = () => {
   let DefaultIcon = L.icon({
@@ -75,10 +23,11 @@ const LeafletMap = () => {
   L.Marker.prototype.options.icon = DefaultIcon;
 
   const [map, setMap] = useState(null);
-  const [mousePosition, setMousePosition] = useState([0, 0]);
-  const [polygon, setPolygon] = useState(null);
-  const [buildingName, setBuildingName] = useState('');
   const [geojson, setGeojson] = useState(null);
+
+  const [startTime, setStartTime] = useState('08:00:00');
+  const [day, setDay] = useState('meetsMonday');
+  const [hourRange, setHourRange] = useState(1);
 
   useEffect(() => {
     let ignore = false;
@@ -101,29 +50,15 @@ const LeafletMap = () => {
 
   return (
     <>
-      {map && geojson ? (
-        <DisplayPosition
-          key={geojson}
-          map={map}
-          mousePosition={mousePosition}
-          geojson={geojson}
-          setBuildingName={setBuildingName}
-          buildingName={buildingName}
-        />
-      ) : null}
+      <MenuBar setStartTime={setStartTime} setDay={setDay} />
       <MapContainer style={{ height: '90vh', width: '100vw' }} center={ucCoordinates} zoom={zoom} ref={setMap}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <MapEvents setMousePosition={setMousePosition} editablePolygon={polygon} />
-        <Marker position={ucCoordinates}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-        {geojson && <DrawBuildings key={geojson} geojson={geojson} />}
-        {/* <EditControlFC key={geojson} geojson={geojson} setGeojson={setGeojson} buildingName={buildingName} /> */}
+        {geojson && (
+          <DrawBuildings key={geojson} geojson={geojson} day={day} startTime={startTime} hourRange={hourRange} />
+        )}
       </MapContainer>
     </>
   );

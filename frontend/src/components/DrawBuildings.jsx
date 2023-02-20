@@ -3,29 +3,42 @@ import ReactDOMServer from 'react-dom/server';
 import * as L from 'leaflet';
 import { GeoJSON } from 'react-leaflet';
 import axios from 'axios';
+import { Text } from '@chakra-ui/react';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
-export default function DrawBuildings({ geojson }) {
+export default function DrawBuildings({ geojson, day, startTime, hourRange }) {
   const ref = React.useRef(null);
   const [buildingData, setBuildingData] = React.useState({});
 
-  const getBuildingData = async (building, startTime, endRange, dayCondition) => {
+  const getBuildingData = async (building) => {
+    const startDate = new Date(`2023-02-19T${startTime}Z`);
+
+    // calculate end time
+    const endDate = new Date(startDate.getTime() + hourRange * 60 * 60 * 1000);
+    const endHours = endDate.getUTCHours().toString().padStart(2, '0');
+    const endMinutes = endDate.getUTCMinutes().toString().padStart(2, '0');
+    const endSeconds = endDate.getUTCSeconds().toString().padStart(2, '0');
+    const endTime = `${endHours}:${endMinutes}:${endSeconds}`;
+    console.log('Making request for', building, day, startTime, endTime);
     axios({
       method: 'get',
       url: `${API_ENDPOINT}/api/v1/classes/getClasses`,
       params: {
         building,
         startTime,
-        endRange,
-        dayCondition,
+        endRange: endTime,
+        dayCondition: day,
       },
     }).then((res) => {
-      console.log('building Data fetched');
-      setBuildingData((prevState) => {
-        console.log('building data set:', { ...prevState, [building]: res });
-        return { ...prevState, [building]: res };
-      });
+      console.log(res);
+      if (res.status === 200) {
+        setBuildingData((prevState) => {
+          return { ...prevState, [building]: res };
+        });
+      } else {
+        console.error('Error %d, Could not make request to backend.', res.status);
+      }
     });
   };
 
@@ -48,12 +61,13 @@ export default function DrawBuildings({ geojson }) {
     if (classesList.length === 0) {
       return <div>No class data available for {buildingName} at this time</div>;
     }
-    console.log('classesList', classesList);
     let columns = ['displayName', 'title', 'description', 'locationDescription', 'startTime', 'endTime', 'course_id'];
     let columnDisplayNames = ['Course', 'Title', 'Description', 'Room', 'Start Time', 'End Time', 'Course ID'];
     return (
       <>
-        <div>Classes in {buildingName}</div>
+        <Text fontSize="6xl">
+          {buildingName} - {day.slice(5)}
+        </Text>
         <table style={{ display: 'block', height: '300px', overflowY: 'scroll' }}>
           <thead>
             <tr>
@@ -102,7 +116,7 @@ export default function DrawBuildings({ geojson }) {
         },
         click: (e) => {
           const buildingName = e.target.feature.properties.buildingDescription;
-          getBuildingData(buildingName, '10:00:00', '11:00:00', 'meetsMonday');
+          getBuildingData(buildingName);
           layer.togglePopup();
           console.log('data in layer', layerBuildingData);
         },
