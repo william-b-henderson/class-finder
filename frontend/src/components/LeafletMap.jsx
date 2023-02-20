@@ -35,12 +35,16 @@ const LeafletMap = () => {
       axios({
         method: 'get',
         url: `${API_ENDPOINT}/api/v1/buildings/getBuildingGeoJSON`,
-      }).then((res) => {
-        if (!ignore) {
-          console.log('geoJSON loaded');
-          setGeojson(res.data);
-        }
-      });
+      })
+        .then((res) => {
+          if (!ignore) {
+            console.log('geoJSON loaded');
+            setGeojson(res.data);
+          }
+        })
+        .catch((error) => {
+          console.error('Error fetching geoJSON data', error);
+        });
     }
     fetchGeoJSON();
     return () => {

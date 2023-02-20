@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import classesRouter from './routes/classes.js'
 import buildingRouter from './routes/buildings.js'
@@ -8,6 +9,11 @@ import buildingRouter from './routes/buildings.js'
 dotenv.config()
 
 const app = express();
+var corsOptions = {
+  origin: ['http://localhost:3000', 'https://berkeleyclassfinder.com', 'https://www.berkeleyclassfinder.com', 'https://main.d1r59odgujpru7.amplifyapp.com/'],
+  optionsSuccessStatus: 200
+}
+app.use(cors(corsOptions))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -19,13 +25,11 @@ router.get('/', function(req, res) {
     res.json({ message: 'API for class finder' });   
 });
 
+
+
 app.use("/", router)
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, token");
-  next();
-});
+
 
 app.use('/api/v1/classes', classesRouter);
 
